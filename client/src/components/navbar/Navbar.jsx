@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
+
 import "./navbar.css";
 import { Link } from "react-router-dom";
 
@@ -28,6 +29,7 @@ const Menu = () => {
 
 const Navbar = () => {
   const [color, setColor] = useState(false);
+
   const changeColor = () => {
     if (window.scrollY >= 10) {
       setColor(true);
@@ -37,6 +39,8 @@ const Navbar = () => {
   };
   window.addEventListener("scroll", changeColor);
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleAvatar, setToggleAvatar] = useState(false);
+
   return (
     <div className={color ? "gpt3__navbar gpt3__navbar-bg" : "gpt3__navbar"}>
       <div className="gpt3__navbar-links">
@@ -50,12 +54,23 @@ const Navbar = () => {
         </div>
       </div>
       <div className="gpt3__navbar-sign">
-        <Link to="/login">
-          <p>Sign in</p>
-        </Link>
-        <Link to="/signup">
-          <button type="button"> Sign up</button>
-        </Link>
+        {toggleAvatar ? (
+          <Link to="/login">
+            <div className="avatar-div">
+            <div className="avatar"></div>
+              <p>name</p>
+            </div>
+          </Link>
+        ) : (
+          <>
+            <Link to="/login">
+              <p>Sign in</p>
+            </Link>
+            <Link to="/signup">
+              <button type="button"> Sign up</button>
+            </Link>
+          </>
+        )}
       </div>
       <div className="gpt3__navbar-menu">
         {toggleMenu ? (

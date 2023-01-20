@@ -2,34 +2,40 @@ import React from "react";
 import people from "../../assets/people.png";
 import ai from "../../assets/ai.png";
 import "./header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => (
   <div className="gpt3__header section__padding" id="home">
     <div className="gpt3__header-content">
-      <h1 className="gradient__text">
-        Diabetes free world!
-      </h1>
+      <h1 className="gradient__text">Diabetes management made simple!</h1>
       <p>
-        Yet bed any for travelling assistance indulgence unpleasing. Not
-        thoughts all exercise blessing. Indulgence way everything joy alteration
-        boisterous the attachment. Party we years to order allow asked of.
+        It's important to work closely with a healthcare provider to develop an
+        individualized treatment plan. We'll help you organize the prescription
+        history.
       </p>
 
       <div className="gpt3__header-content__input">
-        <button className="gpt3__header-content__input-ask" type="button">
-          ASK NOW
-        </button>
-        <button className="gpt3__header-content__input-play" type="button">
-          ▶
-        </button>
-        <div className="gpt3__header-content__input-text">
-          <p>See how it works!</p>
-        </div>
+        <Link to="/signup">
+        <div className="gpt3__header-content__input-div">
+          <button className="gpt3__header-content__input-ask" type="button">
+            Get Started
+          </button>
+          </div>
+        </Link>
+        <a className="see-anchor" href="#features">
+          
+          <div className="gpt3__header-content__input-text">
+          <button className="gpt3__header-content__input-play" type="button">
+            ▶
+          </button>
+            <p>See how it works!</p>
+          </div>
+        </a>
       </div>
 
       <div className="gpt3__header-content__people">
         <img src={people} alt="" />
-        <p>100+ available teachers available 24/7</p>
+        <p>1000+ happy users!</p>
       </div>
     </div>
 
